@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="text-center fs-2">
+  Medicine <b class="txt-mycolor"> Detail</b>
+    </div>
+
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <!-- start card-->
+        {% for i in edata %}
+        <div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="/{{i.medicine_picture}}" style="max-height:250px;" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{i.medicine_category}}</h5>
+        <p class="card-text">{{i.medicine_detail}}</p>
+        <p class="card-text"><big>{{i.medicine_name}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="/{{i.medicine_picture}}" class="img-thumbnail" style="max-height:80px;"/>
+        </big></p>
+          <p class="card-text">
+              <i class="fa-solid fa-hotel"></i> {{i.shop}}&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+             <big> <i class="fa-solid fa-indian-rupee-sign"></i><b> {{i.dprice}}/-</b> <del class="text-danger">{{i.price}}/-</del>
+           </big>
+          </p>
+        <p class="card-text"><small class="text-body-secondary">
+            <i class="fa-solid fa-city"></i> {{i.city}} &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+            <i class="fa-solid fa-calendar-days"></i> {{i.medicine_date}}  &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;
+             <a href="/user/payment/" class="btn btn-sm rounded-pill  bg-mycolor text-light">Buy Now</a>
+
+        </small></p>
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+        <!-- end card-->
+
+    </div>
+</div>
+
+
+{% endblock %}
